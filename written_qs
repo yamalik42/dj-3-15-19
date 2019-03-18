@@ -1,0 +1,42 @@
+Question 2:
+    Render is a django shortcut function, imported from Django.shortcuts. Its functionality partakes in both
+    the view and templating aspects of the MVT architecture. Practically speaking, render() takes one request
+    object and a template name as its required parameters. The request object is used to generate a response
+    and the template will become the substance of that response. Optionally, contexts can be passed into render()
+    in the form of dicts. The template engine will then be able to use whatever data may be in those contexts
+    to modify the final response for the client. Other optional parameters include content-type, status, and 
+    using (template-engine).
+
+Question 3:
+    Extend allows replacement of html elements from the parent template via particular 'extensions' defined in
+    the child template. Include will insert entirely new elements created in another template into the root template 
+    which includes the include tag.
+
+Question 4: 
+    For custom tags/filters make a templatetags directory in any app directory on the level where  models.py is
+    located. Then create an empty __init__.py file in the newly created directory and any file(s) that will 
+    contain definitions of the custom tags/filters. Define custom tags/filters with python functions. Custom
+    filters require the first positional argument to be the value that is to be filtered. Following their 
+    definition custom tags/filters must be registered using the in-built template registry. Finally, confirm 
+    that the app whose directory contains templatetags is listed in settings.py within INSTALLED_APPS. Following
+    these steps, the custom tags/filters are ready to be loaded and used in a template. (SEE CODE FOR WORKING EXAMPLE)
+
+Question 5:
+    To use static files first a static folder must be created with the same name as that listed in the settings 
+    STATIC_URL variable. The location of this folder must be either on the first level of any app directory or 
+    the project directory. If it is in the project directory then the directory path to that static folder must
+    be added to a created STATICFILES_DIRS list in the settings file. Once this is done then static files may
+    be placed in this static directory and used in any template. To use it in a template write {% load static %}
+    before where any static files are to be placed and then use the static tag once the declration of the static
+    file/resource is explicitly declared. (SEE CODE FOR WORKING EXAMPLE)
+
+Question 6:
+    Pagination is mediated via an in-built django class. This class aids immensely in managing and listing paginated
+    data, that is, data which is to be displayed page by page so that only a portion of data is associated with
+    any given page. Django's paginator class will split the data evenly for us and provide useful methods/attributes
+    to implement the page by page data display.
+
+Question 7:
+    'BACKEND' is a dotted Python path to a template engine class implementing Django’s template backend API. 'DIRS' 
+    is a list of directories where the engine should look for template source files, in search order. 'APP_DIRS' tells 
+    whether the engine should look for templates inside installed applications. 'OPTIONS' are backend-specific settings.

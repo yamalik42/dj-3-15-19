@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Orders</title>
+        {% load static %}
+    </head>
+    <body>
+        {% load extras %}
+        <h1>Warranties:</h1>
+        {% for order in orders %}
+            {% if order.ordered_warranty %}
+                <h3>{{order.name|cut:'r'}} has been ordered with a warranty.</h3>
+            {% else %}
+                <h3>{{order.name}} has NOT been ordered with a warranty!</h3>
+            {% endif %}
+        {% endfor %}
+        <h1>{% current_time '%Y' %}</h1>
+        <img src='{% static 'orders/example.jpg' %}' alt="My image">
+    </body>
+</html>
